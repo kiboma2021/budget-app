@@ -6,6 +6,8 @@ class GroupsController < ApplicationController
     if current_user
       @groups = Group.all
       @name = current_user.name
+      @group = "Categories"
+      @btnname = "Add New Category"
      else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
     end
