@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Fixed top</a>
-  <a class="navbar-brand" href="#"><%= @name %></a>
-  <a class="navbar-brand" href="#">Logout</a>
+  <a class="navbar-brand" href="#"><%= @name %>ggg</a>
+  <%= button_to "LogOut", destroy_user_session_path, { method: :delete, data: { turbo:false }}  %>
 </nav>

@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   def index
     if current_user
       @groups = Group.all
+      @name = current_user.name
      else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
     end

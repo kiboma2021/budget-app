@@ -1,5 +1,12 @@
 class HomeController < ApplicationController
   def index;
-    @name = current_user.name
+
+    if current_user
+      @name = current_user.name
+      redirect_to groups_path
+    else
+      redirect_to new_user_session_path, notice: 'You are not logged in.'
+    end
+
   end
 end
