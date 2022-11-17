@@ -4,13 +4,15 @@
 <div id="groups">
   <% @groups.each do |group| %>
     <div class="container" >
+    <%= link_to group do %>
       <div class="d-flex justify-content-between p-2">
-        <div class="d-flex justify-content-between p-2">
-          <p> <%= group.icon %> </p>
+          <div class="d-flex justify-content-between p-2">
+            <p> <%= group.icon %> </p>
+            <p> <%= group.name %> </p>
+          </div>
           <p> <%= group.name %> </p>
-        </div>
-        <p> <%= group.name %> </p>
       </div>
+      <% end %>
     </div>
   <% end %>
 </div>
