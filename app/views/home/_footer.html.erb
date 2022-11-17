@@ -3,6 +3,12 @@
 
   <% if @btnname == "Add New Category"  %>
     <%= link_to @btnname, new_group_path, class:"navbar-brand" %>
+
+  <% elsif @btnname == "Add New Transaction" %>
+    <%= link_to @btnname, new_group_path, class:"navbar-brand" %>
+
+  <% else %>
+    <%= link_to @btnname, new_group_path, class:"navbar-brand" %>
   <% end %>
 
   <p></p>
