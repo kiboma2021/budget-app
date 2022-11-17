@@ -6,10 +6,10 @@ class Group < ApplicationRecord
 
   def total_price
     sum = 0
-    budgets.each do |transaction|
-      sum += transaction.amount
-    end
-    sum
+#    budgets.each do |transaction|
+#      sum += transaction.amount
+#    end
+#    sum
   end
 
   def transactions_list
