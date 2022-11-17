@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :budgets
   resources :groups
   root 'home#index'
   devise_for :users
