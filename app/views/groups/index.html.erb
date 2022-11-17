@@ -3,11 +3,14 @@
 
 <div id="groups">
   <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group %>
-    </p>
+    <div class="container" >
+      <div class="d-flex justify-content-between p-2">
+        <div class="d-flex justify-content-between p-2">
+          <p> <%= group.icon %> </p>
+          <p> <%= group.name %> </p>
+        </div>
+        <p> <%= group.name %> </p>
+      </div>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New group", new_group_path %>

@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
     if current_user
       @groups = Group.all
       @name = current_user.name
-      @group = "Categories"
+      @headername = "All Categories"
       @btnname = "Add New Category"
      else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
@@ -19,7 +19,13 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
-    @group = Group.new
+    if current_user
+      @group = Group.new
+      @name = current_user.name
+      @headername = "Add New Category"
+     else
+      redirect_to new_user_session_path, notice: 'You are not logged in.'
+    end
   end
 
   # GET /groups/1/edit
@@ -72,6 +78,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:name, :icon)
+      params.require(:group).permit(:name, :icon, :user_id)
     end
 end

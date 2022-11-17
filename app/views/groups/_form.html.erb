@@ -11,17 +11,20 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field form-group  p-2">
+    <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
   </div>
 
-  <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
+  <div class="field form-group  p-2">
+    <%= form.text_field :icon, class: "form-control", placeholder: "Image Url(Default Empty)" %>
   </div>
 
+  <div class="field form-group  p-2">
+    <%= form.number_field :user_id, id: :group_user_id, class: "form-control", value: current_user.id, type: :hidden %>
+  </div> 
+
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
+
 <% end %>
