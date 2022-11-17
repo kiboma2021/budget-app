@@ -17,10 +17,15 @@
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag('https://i.imgur.com/1iNjz9t.png') %>
   </head>
-  <body class="text-white bg-dark">
+  <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%= render "home/navbar" %>
+    <%= render "home/footer" %>
+    <div class=" container d-flex flex-column .bg-secondary.bg-gradient">
+        <%= yield %>
+    </div>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
