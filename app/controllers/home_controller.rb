@@ -1,10 +1,8 @@
 class HomeController < ApplicationController
-  def index;
+  def index
+    return unless current_user
 
-    if current_user
-      @name = current_user.name
-      redirect_to groups_path
-    end
-
+    @name = current_user.name
+    redirect_to groups_path
   end
 end
