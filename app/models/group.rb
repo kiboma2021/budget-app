@@ -4,10 +4,15 @@ class Group < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 0, maximum: 40 }
 
+
+  def amount
+    budgets.includes(:groups).sum(:amount)
+  end
+
   def total_price
     sum = 0
 #    budgets.each do |transaction|
-#      sum += transaction.amount
+#      sum += transaction.amount || 0
 #    end
 #    sum
   end

@@ -4,10 +4,15 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def index
     if current_user
-      @groups = Group.all
+      @groups = Group.where(user: current_user)
       @name = current_user.name
       @headername = 'All Categories'
       @btnname = 'Add New Category'
+      @total_amount = 0.0
+      @groups.each do |group|
+        @total_amount += group.amount || 0
+      end
+
     else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
     end
