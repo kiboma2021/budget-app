@@ -28,12 +28,21 @@ class BudgetsController < ApplicationController
   end
 
   # POST /budgets or /budgets.json
-  def create
-    @budget = Budget.new(budget_params)
 
-    respond_to do |format|
+
+  def create
+    #@group = Group.find(params[:group_id])
+    @budget = Budget.new(budget_params)
+    @budget.user = current_user
+    #@budget.groups.push(@group)
+
+
+     respond_to do |format|
       if @budget.save
-        format.html { redirect_to budget_url(@budget), notice: "Budget was successfully created." }
+        format.html do
+          #format.html { redirect_to budget_url(@budget), notice: "Budget was successfully created." }
+          redirect_to groups_path, notice: 'Transaction was successfully created.'
+        end
         format.json { render :show, status: :created, location: @budget }
       else
         format.html { render :new, status: :unprocessable_entity }

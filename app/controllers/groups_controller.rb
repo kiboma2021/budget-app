@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
-    @budgets = Budget.where(group_id: @group)
+    @budgets = Budget.where(group_id: @group).order('created_at DESC')
     @name = current_user.name
     @headername = 'Transactions'
     @btnname = 'Add New Transaction'
