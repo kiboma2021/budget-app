@@ -4,10 +4,16 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def index
     if current_user
-      @groups = Group.all
+      @groups = Group.where(user: current_user)
       @name = current_user.name
       @headername = 'All Categories'
       @btnname = 'Add New Category'
+      @budgets = Budget.where(user: current_user)
+      @total_amount = 0.0
+      @budgets.each do |budget|
+        @total_amount += budget.amount || 0
+      end
+
     else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
     end
@@ -15,9 +21,15 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
+    @budgets = Budget.where(group_id: @group).order('created_at DESC')
     @name = current_user.name
     @headername = 'Transactions'
     @btnname = 'Add New Transaction'
+
+    @total_amount = 0.0
+    @budgets.each do |budget|
+      @total_amount += budget.amount || 0
+    end
   end
 
   # GET /groups/new
