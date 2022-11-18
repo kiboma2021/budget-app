@@ -7,5 +7,4 @@ class Group < ApplicationRecord
   def amount
     budgets.includes(:group).sum(:amount)
   end
-
 end

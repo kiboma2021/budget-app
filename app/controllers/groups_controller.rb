@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
       @name = current_user.name
       @headername = 'All Categories'
       @btnname = 'Add New Category'
-      @budgets= Budget.where(user: current_user)
+      @budgets = Budget.where(user: current_user)
       @total_amount = 0.0
       @budgets.each do |budget|
         @total_amount += budget.amount || 0
@@ -29,8 +29,7 @@ class GroupsController < ApplicationController
     @total_amount = 0.0
     @budgets.each do |budget|
       @total_amount += budget.amount || 0
-    end   
-
+    end
   end
 
   # GET /groups/new
