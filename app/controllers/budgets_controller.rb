@@ -4,10 +4,18 @@ class BudgetsController < ApplicationController
   # GET /budgets or /budgets.json
   def index
     @budgets = Budget.all
+    
+    @total_amount = 0.0
+    @budgets.each do |budget|
+      @total_amount += budget.amount || 0
+    end
+
   end
 
   # GET /budgets/1 or /budgets/1.json
   def show
+
+
   end
 
   # GET /budgets/new

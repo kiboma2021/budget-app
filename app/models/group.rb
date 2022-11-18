@@ -6,7 +6,7 @@ class Group < ApplicationRecord
 
 
   def amount
-    budgets.includes(:groups).sum(:amount)
+    #budgets.includes(:groups).sum(:amount)
   end
 
   def total_price

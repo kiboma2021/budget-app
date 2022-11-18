@@ -8,10 +8,20 @@ class GroupsController < ApplicationController
       @name = current_user.name
       @headername = 'All Categories'
       @btnname = 'Add New Category'
+      @budgets= Budget.all
       @total_amount = 0.0
-      @groups.each do |group|
-        @total_amount += group.amount || 0
+      @budgets.each do |budget|
+        @total_amount += budget.amount || 0
       end
+
+      @total_amount2 = 0.0
+      @items={}
+      @budgets.each do |budget|
+        @total_amount += budget.amount || 0
+      end
+
+
+
 
     else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
@@ -20,9 +30,11 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
+    @budgets = Budget.where(group_id: @group)
     @name = current_user.name
     @headername = 'Transactions'
     @btnname = 'Add New Transaction'
+    
   end
 
   # GET /groups/new

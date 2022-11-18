@@ -1,13 +1,34 @@
 <p style="color: green"><%= notice %></p>
 
 
-    <div class="container bg-light" >
+    <div class="container bg-secondary m-3 p-3" >
       <div class="d-flex justify-content-between p-2">
           <h3> <%= @group.name %> </h3>
           <h3> <%= @group.total_price %> </h3>
       </div>
     </div>
 
+
+
+
+
+    <div class="container bg-light m-3 p-3" >
+    <% @budgets.each do |budget| %>  
+      <div class="d-flex justify-content-between p-2">
+          <h3> <%= budget.name %> </h3>
+          <h3> <%= budget.amount %></h3>
+      </div>
+      <% end %>
+    </div>
+
+
+
+
+
+      
+        
+        
+    
 
 
 
