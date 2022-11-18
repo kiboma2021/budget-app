@@ -21,5 +21,4 @@ RSpec.describe 'Group', type: :model do
       expect(@group).to_not be_valid
     end
   end
-
 end
