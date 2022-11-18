@@ -8,20 +8,11 @@ class GroupsController < ApplicationController
       @name = current_user.name
       @headername = 'All Categories'
       @btnname = 'Add New Category'
-      @budgets= Budget.all
+      @budgets= Budget.where(user: current_user)
       @total_amount = 0.0
       @budgets.each do |budget|
         @total_amount += budget.amount || 0
       end
-
-      @total_amount2 = 0.0
-      @items={}
-      @budgets.each do |budget|
-        @total_amount += budget.amount || 0
-      end
-
-
-
 
     else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
@@ -34,7 +25,12 @@ class GroupsController < ApplicationController
     @name = current_user.name
     @headername = 'Transactions'
     @btnname = 'Add New Transaction'
-    
+
+    @total_amount = 0.0
+    @budgets.each do |budget|
+      @total_amount += budget.amount || 0
+    end   
+
   end
 
   # GET /groups/new

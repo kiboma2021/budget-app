@@ -6,6 +6,9 @@
   <h1 class='self-end text-lg'> <%=@total_amount%></h1>
 </div>
 
+<%=@budgets2 %>
+<%=@budgets_sum %>
+
 <div id="groups">
   <% @groups.each do |group| %>
     <div class="container" >
@@ -15,7 +18,7 @@
             <img src="<%= group.icon %>"  width="50" height="50" alt="<%= group.name %>">
             <p class="d-flex justify-content-around p-2"> <%= group.name %> </p>
           </div>
-          <p class="d-flex justify-content-around p-2"> <%= group.total_price %> </p>
+          <p class="d-flex justify-content-around p-2"> <%= group.amount %> </p>
       </div>
       <% end %>
     </div>
