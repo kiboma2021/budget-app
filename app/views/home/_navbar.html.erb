@@ -7,7 +7,6 @@
   <a class="navbar-brand" href="#"><%= @headername %></a>
   <div class="d-flex">
     <% if user_signed_in? %>
-      <a class="navbar-brand" href="#">Welcome, <%= @name %></a>
       <%= button_to "LogOut", destroy_user_session_path, { method: :delete, data: { turbo:false }}  %>
     <% end %>
   </div>
