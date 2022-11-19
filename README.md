@@ -108,9 +108,10 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+- Original design idea by Gregoire Vella on Behance
+- My supportive family 😊
+- Microverse
 - Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
