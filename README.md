@@ -16,8 +16,10 @@
 - Rspec test
 
 ## Live demo
+https://mymoney-9oyg.onrender.com
 
-
+## Video Link
+https://www.loom.com/share/f688a7a3c63943529d4f32d7a8c66604
 # Getting Started
 
 ### Prerequisites
