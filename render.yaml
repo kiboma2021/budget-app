@@ -1,26 +1,24 @@
-databases:
-  - name: postgres
-    ipAllowList: []
-    #databaseName: budgetapp
-    #user: budgetapp
-
 services:
   - type: web
-    name: budgetapp
-    env: ruby
-    buildCommand: "./bin/render-build.sh"
-    startCommand: bundle exec rails s
-    envVars:
-      - key: RAILS_MASTER_KEY
-        sync: false
-      - key: DATABASE_URL
-        fromDatabase:
-          name: postgres
-          property: connectionString
-  - type: redis
-    name: redis
-    ipAllowList: []
     plan: free
-    maxmemoryPolicy: noeviction
+    name: postgrest
+    env: docker
+    autoDeploy: false
+    envVars:
+      - key: PGRST_DB_URI
+        fromDatabase:
+          name: postgrest-db
+          property: connectionString
+      - key: PGRST_DB_SCHEMA
+        value: public
+      - key: PGRST_DB_ANON_ROLE
+        fromDatabase:
+          name: postgrest-db
+          property: user
 
-        
+databases:
+  - name: postgrest-db
+    plan: free
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: from anywhere
