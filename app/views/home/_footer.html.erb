@@ -1,0 +1,15 @@
+<nav class="navbar fixed-bottom navbar-dark bg-success">
+  <p></p>
+
+  <% if @btnname == "Add New Category"  %>
+    <%= link_to @btnname, new_group_path, class:"navbar-brand" %>
+
+  <% elsif @btnname == "Add New Transaction" %>
+    <%= link_to @btnname, new_budget_path, class:"navbar-brand" %>
+
+  <% else %>
+
+  <% end %>
+
+  <p></p>
+</nav>

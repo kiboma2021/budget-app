@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div class="d-flex justify-content-between m-2 p-2 text-light bg-dark">
+  <h1 class=' self-center text-2xl'>Total Amount: </h1>
+  <h1 class='self-end text-lg'> <%=@total_amount%></h1>
+</div>
+
+<%=@budgets2 %>
+<%=@budgets_sum %>
+
+<div id="groups">
+  <% @groups.each do |group| %>
+    <div class="container" >
+    <%= link_to group do %>
+      <div class="d-flex justify-content-between m-2 p-2 text-light bg-secondary">
+          <div class="d-flex justify-content-around">
+            <img src="<%= group.icon %>"  width="50" height="50" alt="<%= group.name %>">
+            <p class="d-flex justify-content-around p-2"> <%= group.name %> </p>
+          </div>
+          <p class="d-flex justify-content-around p-2"> <%= group.amount %> </p>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
