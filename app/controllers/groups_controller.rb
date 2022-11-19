@@ -25,6 +25,7 @@ class GroupsController < ApplicationController
     @name = current_user.name
     @headername = 'Transactions'
     @btnname = 'Add New Transaction'
+    @backbtn='back'
 
     @total_amount = 0.0
     @budgets.each do |budget|
@@ -38,6 +39,7 @@ class GroupsController < ApplicationController
       @group = Group.new
       @name = current_user.name
       @headername = 'Add New Category'
+      @backbtn='back'
     else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
     end

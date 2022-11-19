@@ -1,6 +1,9 @@
 <nav class="navbar fixed-top navbar-dark bg-primary">
-  <i class="fa fa-angle-double-left" style="font-size:48px;color:white"><%= link_to "xx", groups_path %></i>
-
+  <% if @backbtn == 'back' %>
+    <%= link_to "", groups_path, class:"fa fa-angle-double-left bg-light fa-2x" %>
+  <% else %>
+    <p></p>
+  <% end %>
   <a class="navbar-brand" href="#"><%= @headername %></a>
   <div class="d-flex">
     <% if user_signed_in? %>
