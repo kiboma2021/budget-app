@@ -19,7 +19,7 @@ class BudgetsController < ApplicationController
     @budget = Budget.new
     @name = current_user.name
     @headername = 'Add New Transaction'
-    @backbtn='back'
+    @backbtn = 'back'
   end
 
   # GET /budgets/1/edit
