@@ -88,7 +88,7 @@ rspec
 
 ```
 
-## Authors
+## Author
 
 👤 **Ben Kiboma**
 
